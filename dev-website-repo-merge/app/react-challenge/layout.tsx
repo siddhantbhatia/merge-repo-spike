@@ -10,6 +10,9 @@ export default function ReactChallengeLayout({
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh",
+        height: "100%",
+        flexDirection: "column",
+        gap: 8,
       }}
     >
       {children}
