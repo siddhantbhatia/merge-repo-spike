@@ -1,0 +1,26 @@
+.modal_overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  min-width: 100vw;
+  position: absolute;
+  background-color: rgba(125, 125, 125, 0.5);
+}
+
+.modal_container {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.button {
+  background-color: beige;
+  padding: 8px;
+}
