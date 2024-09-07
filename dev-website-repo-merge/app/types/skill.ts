@@ -1,12 +1,12 @@
 export enum SkillTag {
-  Frontend = "Front End",
-  Backend = "Back End",
-  Monitoring = "Monitoring",
-  LibraryFramework = "LibraryFramework",
-  Testing = "Testing",
-  Language = "Language",
-  Concept = "Concept",
-  CICD = "CICD",
+  Frontend = "frontend",
+  Backend = "backend",
+  Monitoring = "monitoring",
+  LibraryFramework = "libraryframework",
+  Testing = "testing",
+  Language = "language",
+  Concept = "concept",
+  CICD = "cicd",
 }
 
 export interface Skill {
