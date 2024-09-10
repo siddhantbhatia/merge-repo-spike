@@ -1,7 +1,8 @@
 import { Header } from "app/components/header";
 import { SearchBox } from "app/components/search-box";
-import { Skill } from "app/types/skill";
 import { FilterBox } from "app/ui/skill-listing/filter";
+import { SkillCards } from "app/ui/skill-listing/skill-cards";
+import { Suspense } from "react";
 
 interface PageProps {
   searchParams?: {
@@ -13,10 +14,6 @@ interface PageProps {
 export default async function Page({ searchParams }: PageProps) {
   const searchQuery = searchParams?.search || "";
   const filterQuery = searchParams?.filters || "";
-
-  const data: Skill[] = await fetch(
-    `http://localhost:3000/api/skill-listing?search=${searchQuery}&filters=${filterQuery}`
-  ).then((res) => res.json());
 
   return (
     <div
@@ -33,18 +30,9 @@ export default async function Page({ searchParams }: PageProps) {
           <div className="mb-4">
             <SearchBox />
           </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {data.map((item, idx) => (
-              <div
-                key={idx}
-                className="p-4 border rounded shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <h3 className="text-xl font-semibold">{item.name}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{item.tags}</p>
-              </div>
-            ))}
-          </div>
+          <Suspense fallback={<div>Loading...</div>}>
+            <SkillCards searchQuery={searchQuery} filterQuery={filterQuery} />
+          </Suspense>
         </main>
       </div>
     </div>

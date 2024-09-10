@@ -43,7 +43,7 @@ const VirtualList = ({ items, itemHeight, height }: VirtualListProps) => {
       ref={containerRef}
       style={{ overflowY: "auto", height: `${height}px`, position: "relative" }}
     >
-      <div style={{ height: `${totalHeight}px`, position: "relative" }}>
+      <div style={{ height: `${totalHeight}px` }}>
         {items.slice(startIdx, endIdx).map((item, index) => (
           <div
             key={startIdx + index}

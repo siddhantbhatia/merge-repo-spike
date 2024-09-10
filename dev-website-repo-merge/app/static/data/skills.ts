@@ -54,6 +54,10 @@ export const SkillData: Skill[] = [
     tags: [SkillTag.Frontend, SkillTag.LibraryFramework],
   },
   {
+    name: "React Query",
+    tags: [SkillTag.Frontend, SkillTag.LibraryFramework],
+  },
+  {
     name: "Nextjs",
     tags: [SkillTag.Frontend, SkillTag.LibraryFramework],
   },

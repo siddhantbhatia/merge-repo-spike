@@ -1,6 +1,6 @@
 "use client";
 import { FilterList } from "app/static/data/filters";
-import { SkillTag } from "app/types/skill";
+import { FilterKey } from "app/types/filter";
 import {
   ReadonlyURLSearchParams,
   usePathname,
@@ -12,8 +12,13 @@ import { useForm } from "react-hook-form";
 const filterQueryParamName = "filters";
 
 type FormValues = {
-  [key in SkillTag]: boolean;
+  [key in FilterKey]: boolean;
 };
+
+const skillFilters = FilterList.filter((filter) => filter.type === "skill");
+const featureFilters = FilterList.filter(
+  (filter) => filter.type === "page-feature"
+);
 
 export const FilterBox = () => {
   const searchParams = useSearchParams();
@@ -52,7 +57,17 @@ export const FilterBox = () => {
 
   return (
     <form onChange={handleFormChange}>
-      {FilterList.map(({ key, label }) => (
+      <p>Page features</p>
+      {featureFilters.map(({ key, label }) => (
+        <div key={key} className="mb-2">
+          <label className="flex items-center">
+            <input {...register(key)} type="checkbox" className="mr-2" />
+            {label}
+          </label>
+        </div>
+      ))}
+      <p>Skills</p>
+      {skillFilters.map(({ key, label }) => (
         <div key={key} className="mb-2">
           <label className="flex items-center">
             <input {...register(key)} type="checkbox" className="mr-2" />

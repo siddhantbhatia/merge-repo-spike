@@ -1,4 +1,5 @@
 import { SkillData } from "app/static/data/skills";
+import { FeatureFilterKey } from "app/types/filter";
 import { SkillTag } from "app/types/skill";
 import { NextRequest } from "next/server";
 
@@ -7,7 +8,14 @@ export async function GET(req: NextRequest) {
   const searchQueryParam = searchParams.get("search");
   const filterQueryParam = searchParams.get("filters");
 
-  const filterArray = filterQueryParam ? filterQueryParam.split(",") : [];
+  let filterArray = filterQueryParam ? filterQueryParam.split(",") : [];
+
+  filterArray.includes(FeatureFilterKey.HttpStreaming) &&
+    (await new Promise<void>((res) => setTimeout(res, 3000)));
+
+  filterArray = filterArray.filter(
+    (key) => !Object.values(FeatureFilterKey).includes(key as FeatureFilterKey)
+  );
 
   const data = SkillData.filter((item) => {
     if (!searchQueryParam && !filterArray.length) {
