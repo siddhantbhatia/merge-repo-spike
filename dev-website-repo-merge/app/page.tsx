@@ -8,7 +8,7 @@ import { InformationIde } from "app/components/information-ide";
 
 export default function Page() {
   return (
-    <main className="flex flex-col justify-center items-center h-full gap-8 p-10">
+    <main className="flex flex-col justify-center items-center h-full gap-8 p-10 bg-gradient-to-br from-[#ff000000] to-[#00bcffa6]  ">
       <div className="flex w-full lg:justify-around md:justify-center">
         <div
           id="picture-name-headline"

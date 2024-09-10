@@ -14,14 +14,6 @@ body {
   height: 100%;
 }
 
-body {
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(255, 0, 0, 0),
-    rgb(0 188 255 / 65%)
-  );
-}
-
 a {
   cursor: pointer;
 }
