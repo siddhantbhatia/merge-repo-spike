@@ -1,0 +1,10 @@
+.star_icon {
+  --icon-size: 32px;
+  height: var(--icon-size);
+  width: var(--icon-size);
+  cursor: pointer;
+}
+
+.star_icon_filled {
+  fill: yellow;
+}
